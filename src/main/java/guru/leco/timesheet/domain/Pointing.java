@@ -18,4 +18,8 @@ public class Pointing {
 
     @OneToMany(mappedBy = "day")
     private HashSet<Time> times;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }
