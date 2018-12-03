@@ -13,11 +13,10 @@ import org.mockito.Mockito;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
 import java.util.UUID;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.when;
 
@@ -70,5 +69,11 @@ public class UserServiceTest {
         this.userService.deleteById(this.user.getId());
 
         Mockito.verify(this.userRepository, times(1)).deleteById(this.user.getId());
+    }
+
+    @Test
+    public void deleteUser(){
+        this.userService.delete(this.user);
+        Mockito.verify(this.userRepository, times(1)).delete(this.user);
     }
 }
