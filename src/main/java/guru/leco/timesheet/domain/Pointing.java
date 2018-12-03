@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.UUID;
 
@@ -18,6 +19,8 @@ public class Pointing {
 
     @OneToMany(mappedBy = "day")
     private HashSet<Time> times;
+
+    private LocalDate date;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
