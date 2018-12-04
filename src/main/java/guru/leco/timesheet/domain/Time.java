@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.UUID;
 
 @Entity
@@ -20,7 +20,7 @@ public class Time {
     @JoinColumn(name = "pointing_id")
     private Pointing pointing;
 
-    private LocalDateTime start;
+    private LocalTime start;
 
-    private LocalDateTime end;
+    private LocalTime end;
 }

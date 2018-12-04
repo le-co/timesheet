@@ -17,7 +17,7 @@ public class Pointing {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-    @OneToMany(mappedBy = "day")
+    @OneToMany(mappedBy = "day", cascade = CascadeType.ALL)
     private HashSet<Time> times;
 
     private LocalDate date;
