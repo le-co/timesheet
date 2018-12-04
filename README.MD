@@ -30,6 +30,12 @@ src
 
 #### Build project
 
+```bash
+$ ./mvnw clean install
+```
+
+The jar are created in `target` folder.
+
 #### How do you start app
 
 #### Commons Api
