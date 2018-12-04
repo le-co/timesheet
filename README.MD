@@ -13,6 +13,19 @@ the same is maintained on the MIT license.
 
 #### If you want custom Timesheet
 
+You can find HTML, CSS and JavaScripts on template folder in resource project
+
+```bash
+src
+--- main
+-------- resources
+------------------ templates
+---------------------------- resouces (ex.: user)
+------------------ static
+------------------------- css
+------------------------- js
+```
+
 #### Environments variables
 
 #### How do you Build
