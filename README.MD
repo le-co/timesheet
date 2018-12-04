@@ -15,7 +15,7 @@ the same is maintained on the MIT license.
 
 You can find HTML, CSS and JavaScripts on template folder in resource project
 
-```bash
+```text
 src
 --- main
 -------- resources
