@@ -28,7 +28,7 @@ src
 
 #### Environments variables
 
-#### How do you Build
+#### Build project
 
 #### How do you start app
 
