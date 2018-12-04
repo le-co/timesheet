@@ -45,4 +45,9 @@ public class UserServiceJpaImp implements UserService {
     public void deleteById(UUID uuid) {
         this.userRepository.deleteById(uuid);
     }
+
+    @Override
+    public User authentication(String username, String password) {
+        return null;
+    }
 }
