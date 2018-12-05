@@ -1,4 +1,4 @@
-package guru.leco.timesheet.integration.controllers;
+package guru.leco.timesheet.controllers;
 
 import guru.leco.timesheet.services.contracts.PointingService;
 import org.junit.Before;
