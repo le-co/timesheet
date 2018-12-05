@@ -1,8 +1,8 @@
 package guru.leco.timesheet.services.jpa;
 
 import guru.leco.timesheet.domain.Professionals;
-import guru.leco.timesheet.repositories.UserRepository;
-import guru.leco.timesheet.services.contracts.UserService;
+import guru.leco.timesheet.repositories.ProfessionalsRepository;
+import guru.leco.timesheet.services.contracts.ProfessionalsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
@@ -12,12 +12,12 @@ import java.util.UUID;
 
 @Service
 @Profile("jpa")
-public class UserServiceJpaImp implements UserService {
+public class ProfessionalsServiceJpaImp implements ProfessionalsService {
 
-    private UserRepository userRepository;
+    private ProfessionalsRepository userRepository;
 
     @Autowired
-    public UserServiceJpaImp(UserRepository userRepository) {
+    public ProfessionalsServiceJpaImp(ProfessionalsRepository userRepository) {
         this.userRepository = userRepository;
     }
 

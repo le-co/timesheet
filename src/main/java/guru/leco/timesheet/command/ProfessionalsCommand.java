@@ -7,7 +7,7 @@ import java.util.List;
 
 @Getter
 @Builder
-public class UserCommand {
+public class ProfessionalsCommand {
 
     private String id;
 

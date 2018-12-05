@@ -24,6 +24,6 @@ public class Professionals {
 
     private String username;
 
-    @OneToMany(mappedBy = "professionals")
+    @OneToMany(mappedBy = "professionals", cascade = CascadeType.ALL, orphanRemoval = false)
     private List<Pointing> pointing;
 }

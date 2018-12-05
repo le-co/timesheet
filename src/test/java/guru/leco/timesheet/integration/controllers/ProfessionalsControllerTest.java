@@ -3,7 +3,7 @@ package guru.leco.timesheet.integration.controllers;
 import guru.leco.timesheet.domain.Pointing;
 import guru.leco.timesheet.domain.Professionals;
 import guru.leco.timesheet.domain.Times;
-import guru.leco.timesheet.services.contracts.UserService;
+import guru.leco.timesheet.services.contracts.ProfessionalsService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,19 +25,19 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @RunWith(SpringRunner.class)
-public class UserControllerTest {
+public class ProfessionalsControllerTest {
 
     @Mock
-    private UserService userService;
+    private ProfessionalsService professionalsService;
 
     @InjectMocks
-    private UserController userController;
+    private ProfessionalsController professionalsController;
 
     private MockMvc mockMvc;
 
     @Before
     public void setUp() throws Exception {
-        this.mockMvc = MockMvcBuilders.standaloneSetup(userController).build();
+        this.mockMvc = MockMvcBuilders.standaloneSetup(professionalsController).build();
     }
 
     @Test
@@ -61,7 +61,7 @@ public class UserControllerTest {
         pointing.setTimes(Sets.newSet(time1, time2));
 
         user.setPointing(Arrays.asList(pointing));
-        when(this.userService.findById(Mockito.any(UUID.class))).thenReturn(user);
+        when(this.professionalsService.findById(Mockito.any(UUID.class))).thenReturn(user);
 
         mockMvc.perform(get("/user/" + UUID.randomUUID() +"/pointing"))
                 .andExpect(status().isOk())

@@ -2,9 +2,9 @@ package guru.leco.timesheet.unit.services;
 
 
 import guru.leco.timesheet.domain.Professionals;
-import guru.leco.timesheet.repositories.UserRepository;
-import guru.leco.timesheet.services.contracts.UserService;
-import guru.leco.timesheet.services.jpa.UserServiceJpaImp;
+import guru.leco.timesheet.repositories.ProfessionalsRepository;
+import guru.leco.timesheet.services.contracts.ProfessionalsService;
+import guru.leco.timesheet.services.jpa.ProfessionalsServiceJpaImp;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,12 +21,12 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)
-public class UserServiceTest {
+public class ProfessionalsServiceTest {
 
     @Mock
-    private UserRepository userRepository;
+    private ProfessionalsRepository userRepository;
 
-    private UserService userService;
+    private ProfessionalsService professionalsService;
 
     private Professionals user;
 
@@ -36,12 +36,12 @@ public class UserServiceTest {
         this.user.setId(UUID.randomUUID());
         user.setCode("0101");
         user.setMail("test@gmail.com");
-        this.userService = new UserServiceJpaImp(userRepository);
+        this.professionalsService = new ProfessionalsServiceJpaImp(userRepository);
     }
 
     @Test
     public void createUser() {
-        this.userService.saveOrUpdate(this.user);
+        this.professionalsService.saveOrUpdate(this.user);
 
         Mockito.verify(this.userRepository, Mockito.times(1)).save(this.user);
     }
@@ -50,7 +50,7 @@ public class UserServiceTest {
     public void findById() {
         when(this.userRepository.findById(this.user.getId())).thenReturn(java.util.Optional.ofNullable(this.user));
 
-        Professionals user = this.userService.findById(this.user.getId());
+        Professionals user = this.professionalsService.findById(this.user.getId());
 
         assertEquals(this.user.getMail(), user.getMail());
     }
@@ -59,21 +59,21 @@ public class UserServiceTest {
     public void findAll() {
         when(this.userRepository.findAll()).thenReturn(Arrays.asList(this.user));
 
-        List<Professionals> users = this.userService.findAll();
+        List<Professionals> users = this.professionalsService.findAll();
 
         assertEquals(1, users.size());
     }
 
     @Test
     public void deleteById() {
-        this.userService.deleteById(this.user.getId());
+        this.professionalsService.deleteById(this.user.getId());
 
         Mockito.verify(this.userRepository, times(1)).deleteById(this.user.getId());
     }
 
     @Test
     public void deleteUser(){
-        this.userService.delete(this.user);
+        this.professionalsService.delete(this.user);
         Mockito.verify(this.userRepository, times(1)).delete(this.user);
     }
 }
