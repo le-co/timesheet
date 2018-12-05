@@ -25,7 +25,7 @@ SELECT * FROM pg_stat_activity;
 
 #### If you want custom Timesheet
 
-You can find HTML, CSS and JavaScripts on template folder in resource project
+You can find HTML, CSS and JavaScripts on template folder.
 
 ```text
 src
