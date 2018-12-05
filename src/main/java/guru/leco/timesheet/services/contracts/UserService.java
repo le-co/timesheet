@@ -1,10 +1,10 @@
 package guru.leco.timesheet.services.contracts;
 
-import guru.leco.timesheet.domain.User;
+import guru.leco.timesheet.domain.Professionals;
 
 import java.util.UUID;
 
-public interface UserService extends CrudService<User, UUID> {
+public interface UserService extends CrudService<Professionals, UUID> {
 
-    User authentication(String username, String password);
+    Professionals authentication(String username, String password);
 }

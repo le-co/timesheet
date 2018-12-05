@@ -1,7 +1,7 @@
 package guru.leco.timesheet.unit.services;
 
 
-import guru.leco.timesheet.domain.User;
+import guru.leco.timesheet.domain.Professionals;
 import guru.leco.timesheet.repositories.UserRepository;
 import guru.leco.timesheet.services.contracts.UserService;
 import guru.leco.timesheet.services.jpa.UserServiceJpaImp;
@@ -28,11 +28,11 @@ public class UserServiceTest {
 
     private UserService userService;
 
-    private User user;
+    private Professionals user;
 
     @Before
     public void init() {
-        this.user = new User();
+        this.user = new Professionals();
         this.user.setId(UUID.randomUUID());
         user.setCode("0101");
         user.setMail("test@gmail.com");
@@ -50,7 +50,7 @@ public class UserServiceTest {
     public void findById() {
         when(this.userRepository.findById(this.user.getId())).thenReturn(java.util.Optional.ofNullable(this.user));
 
-        User user = this.userService.findById(this.user.getId());
+        Professionals user = this.userService.findById(this.user.getId());
 
         assertEquals(this.user.getMail(), user.getMail());
     }
@@ -59,7 +59,7 @@ public class UserServiceTest {
     public void findAll() {
         when(this.userRepository.findAll()).thenReturn(Arrays.asList(this.user));
 
-        List<User> users = this.userService.findAll();
+        List<Professionals> users = this.userService.findAll();
 
         assertEquals(1, users.size());
     }

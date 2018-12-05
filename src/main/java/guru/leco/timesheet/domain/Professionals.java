@@ -4,23 +4,26 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.time.LocalTime;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
 @Getter
 @Setter
-public class Time {
+public class Professionals {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-    @ManyToOne
-    @JoinColumn(name = "pointing_id")
-    private Pointing pointing;
+    private String mail;
 
-    private LocalTime start;
+    private String code;
 
-    private LocalTime end;
+    private String password;
+
+    private String username;
+
+    @OneToMany(mappedBy = "professionals")
+    private List<Pointing> pointing;
 }

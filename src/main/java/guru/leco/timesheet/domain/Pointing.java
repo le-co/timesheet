@@ -21,12 +21,12 @@ public class Pointing {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-    @OneToMany(mappedBy = "day", cascade = CascadeType.ALL)
-    private Set<Time> times;
+    @OneToMany(mappedBy = "pointing", cascade = CascadeType.ALL)
+    private Set<Times> times;
 
     private LocalDate date;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "professionals_id")
+    private Professionals professionals;
 }

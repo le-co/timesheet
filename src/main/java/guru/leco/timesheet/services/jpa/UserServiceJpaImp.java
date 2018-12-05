@@ -1,6 +1,6 @@
 package guru.leco.timesheet.services.jpa;
 
-import guru.leco.timesheet.domain.User;
+import guru.leco.timesheet.domain.Professionals;
 import guru.leco.timesheet.repositories.UserRepository;
 import guru.leco.timesheet.services.contracts.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,22 +22,22 @@ public class UserServiceJpaImp implements UserService {
     }
 
     @Override
-    public User saveOrUpdate(User object) {
+    public Professionals saveOrUpdate(Professionals object) {
         return this.userRepository.save(object);
     }
 
     @Override
-    public User findById(UUID uuid) {
+    public Professionals findById(UUID uuid) {
         return this.userRepository.findById(uuid).orElse(null);
     }
 
     @Override
-    public List<User> findAll() {
-        return (List<User>) this.userRepository.findAll();
+    public List<Professionals> findAll() {
+        return (List<Professionals>) this.userRepository.findAll();
     }
 
     @Override
-    public void delete(User object) {
+    public void delete(Professionals object) {
         this.userRepository.delete(object);
     }
 
@@ -47,7 +47,7 @@ public class UserServiceJpaImp implements UserService {
     }
 
     @Override
-    public User authentication(String username, String password) {
+    public Professionals authentication(String username, String password) {
         return null;
     }
 }

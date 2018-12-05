@@ -1,7 +1,7 @@
 package guru.leco.timesheet.integration.controllers;
 
 import guru.leco.timesheet.commons.StringToUUID;
-import guru.leco.timesheet.domain.User;
+import guru.leco.timesheet.domain.Professionals;
 import guru.leco.timesheet.services.contracts.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,7 +25,7 @@ public class UserController {
 
     @GetMapping("/{id}/pointing")
     public String pointing(@NotBlank @PathVariable String id, Model model){
-        User user = this.userService.findById(StringToUUID.convert(id));
+        Professionals user = this.userService.findById(StringToUUID.convert(id));
         model.addAttribute("pointing", user.getPointing());
         return "/pointing/index";
     }

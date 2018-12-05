@@ -1,7 +1,6 @@
 package guru.leco.timesheet.unit.services;
 
 import guru.leco.timesheet.domain.Pointing;
-import guru.leco.timesheet.domain.User;
 import guru.leco.timesheet.repositories.PointingRepository;
 import guru.leco.timesheet.services.contracts.PointingService;
 import guru.leco.timesheet.services.jpa.PointingServiceJpaImp;

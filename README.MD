@@ -9,7 +9,19 @@ the same is maintained on the MIT license.
 
 > java >= 8
 
-> Postgres database or Mysql
+> Postgres database
+
+#### Postgres with docker
+
+```bash
+$ docker run --name=timesheet -d -p 5432:5432  -e POSTGRES_PASSWORD=sa -e POSTGRES_USER=sa -e POSTGRES_DB=timesheet postgres
+```
+
+#### Check connection active on database
+
+```sql
+SELECT * FROM pg_stat_activity;
+```
 
 #### If you want custom Timesheet
 

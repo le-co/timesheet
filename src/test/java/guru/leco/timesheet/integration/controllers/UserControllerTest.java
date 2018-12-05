@@ -1,8 +1,8 @@
 package guru.leco.timesheet.integration.controllers;
 
 import guru.leco.timesheet.domain.Pointing;
-import guru.leco.timesheet.domain.Time;
-import guru.leco.timesheet.domain.User;
+import guru.leco.timesheet.domain.Professionals;
+import guru.leco.timesheet.domain.Times;
 import guru.leco.timesheet.services.contracts.UserService;
 import org.junit.Before;
 import org.junit.Test;
@@ -43,17 +43,17 @@ public class UserControllerTest {
     @Test
     public void pointing() throws Exception {
 
-        User user = new User();
+        Professionals user = new Professionals();
         user.setUsername("test");
         user.setPassword("test-password");
 
-        Time time1 = new Time();
+        Times time1 = new Times();
         time1.setStart(LocalTime.now());
-        time1.setEnd(LocalTime.now().plusHours(12));
+        time1.setFinish(LocalTime.now().plusHours(12));
 
-        Time time2 = new Time();
+        Times time2 = new Times();
         time2.setStart(LocalTime.now());
-        time2.setEnd(LocalTime.now().plusHours(12));
+        time2.setFinish(LocalTime.now().plusHours(12));
 
 
         Pointing pointing = new Pointing();

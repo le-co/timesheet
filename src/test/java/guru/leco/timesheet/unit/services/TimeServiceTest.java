@@ -1,6 +1,6 @@
 package guru.leco.timesheet.unit.services;
 
-import guru.leco.timesheet.domain.Time;
+import guru.leco.timesheet.domain.Times;
 import guru.leco.timesheet.repositories.TimeRepository;
 import guru.leco.timesheet.services.contracts.TimeService;
 import guru.leco.timesheet.services.jpa.TimeServiceJpaImp;
@@ -28,15 +28,15 @@ public class TimeServiceTest {
 
     private TimeService timeService;
 
-    private Time time;
+    private Times time;
 
     @Before
     public void setUp() throws Exception {
 
-        this.time = new Time();
+        this.time = new Times();
         this.time.setId(UUID.randomUUID());
         this.time.setStart(LocalTime.now());
-        this.time.setEnd(LocalTime.now());
+        this.time.setFinish(LocalTime.now());
 
         this.timeService = new TimeServiceJpaImp(this.timeRepository);
     }
@@ -52,7 +52,7 @@ public class TimeServiceTest {
     public void findById() {
         when(this.timeRepository.findById(this.time.getId())).thenReturn(java.util.Optional.ofNullable(this.time));
 
-        Time time = this.timeService.findById(this.time.getId());
+        Times time = this.timeService.findById(this.time.getId());
 
         assertEquals(this.time.getStart(), time.getStart());
     }
@@ -61,7 +61,7 @@ public class TimeServiceTest {
     public void findAll() {
         when(this.timeRepository.findAll()).thenReturn(Arrays.asList(this.time));
 
-        List<Time> pointing = this.timeService.findAll();
+        List<Times> pointing = this.timeService.findAll();
 
         assertEquals(1, pointing.size());
     }

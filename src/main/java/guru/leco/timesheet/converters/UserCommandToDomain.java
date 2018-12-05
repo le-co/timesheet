@@ -2,7 +2,7 @@ package guru.leco.timesheet.converters;
 
 import guru.leco.timesheet.command.UserCommand;
 import guru.leco.timesheet.commons.StringToUUID;
-import guru.leco.timesheet.domain.User;
+import guru.leco.timesheet.domain.Professionals;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 import java.util.stream.Collectors;
 
 @Component
-public class UserCommandToDomain implements Converter<UserCommand, User> {
+public class UserCommandToDomain implements Converter<UserCommand, Professionals> {
 
     private PointingCommandToDomain pointingCommandToDomain;
 
@@ -20,8 +20,8 @@ public class UserCommandToDomain implements Converter<UserCommand, User> {
 
     @Nullable
     @Override
-    public User convert(UserCommand source) {
-        User user = new User();
+    public Professionals convert(UserCommand source) {
+        Professionals user = new Professionals();
 
         if (source.getId() != null) {
             user.setId(StringToUUID.convert(source.getId()));

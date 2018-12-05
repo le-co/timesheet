@@ -1,11 +1,8 @@
 package guru.leco.timesheet.services.jpa;
 
-import guru.leco.timesheet.domain.Time;
-import guru.leco.timesheet.domain.User;
+import guru.leco.timesheet.domain.Times;
 import guru.leco.timesheet.repositories.TimeRepository;
-import guru.leco.timesheet.repositories.UserRepository;
 import guru.leco.timesheet.services.contracts.TimeService;
-import guru.leco.timesheet.services.contracts.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
@@ -25,22 +22,22 @@ public class TimeServiceJpaImp implements TimeService {
     }
 
     @Override
-    public Time saveOrUpdate(Time object) {
+    public Times saveOrUpdate(Times object) {
         return this.timeRepository.save(object);
     }
 
     @Override
-    public Time findById(UUID uuid) {
+    public Times findById(UUID uuid) {
         return this.timeRepository.findById(uuid).orElse(null);
     }
 
     @Override
-    public List<Time> findAll() {
-        return (List<Time>) this.timeRepository.findAll();
+    public List<Times> findAll() {
+        return (List<Times>) this.timeRepository.findAll();
     }
 
     @Override
-    public void delete(Time object) {
+    public void delete(Times object) {
         this.timeRepository.delete(object);
     }
 
